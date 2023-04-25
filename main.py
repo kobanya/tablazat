@@ -18,11 +18,12 @@ def tabla(t):
         szelesseg = sum(oszlop_szelesseg) + 3 * (len(oszlop_szelesseg) )
         print("\u250C" + "\u2500" * (szelesseg - 1) + "\u2510")
         print("\u2502", end=" ")
+
         for i, oszlop in enumerate(fejlec):
             if i == 0:
-                print("{:^{width}}".format(oszlop, width=oszlop_szelesseg[i]), end="  ")
+                print("\033[91m{:^{width}}\033[0m".format(oszlop, width=oszlop_szelesseg[i]), end="  ")
             else:
-                print("\u2502" + "{:^{width}}".format(oszlop, width=oszlop_szelesseg[i]), end="  ")
+                print("\u2502\033[91m{:^{width}}\033[0m".format(oszlop, width=oszlop_szelesseg[i]), end="  ")
         print("\u2502")
         print("\u251C" + "\u253C".join(["\u2500" * (width + 2) for width in oszlop_szelesseg]) + "\u2524")
         for sor in tartalom:
